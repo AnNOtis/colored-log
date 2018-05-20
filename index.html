@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./dist/bundle.js"></script>
+  <script>
+
+(function () {
+  console.group('Single Style:')
+  const blue = colored.createStyle('color: #0984e3;')
+  const yellow = colored.createStyle('color: #fdcb6e;')
+  const red = colored.createStyle('color: #d63031;')
+  const green = colored.createStyle('color: #00b894;')
+
+  colored.log`normal ${blue('blue')} ${yellow('yellow')} ${red('red')} ${green('green')}`
+  console.groupEnd()
+})();
+
+(function () {
+  console.group('Set Default Style:')
+  colored.style = 'font-weight: bold; color: red;' // set default style
+  colored.log`All text are bold and red`
+
+  colored.style = '' // reset
+  console.groupEnd()
+})();
+
+(function () {
+  console.group('Nest Styles:')
+  const yellowBg = colored.createStyle('background: #fdcb6e;')
+  const red = colored.createStyle('color: #d63031;')
+
+  colored.log`${yellowBg` nested ${red`style`} is avaliable!! `}`
+  console.groupEnd()
+})();
+
+(function () {
+  console.group('Nest Multiple Styles:')
+  const whiteText = colored.createStyle('color: white;')
+  const blue1 = colored.createStyle('background: #0984e3;')
+  const blue2 = colored.createStyle('background: #065ca9;')
+  const blue3 = colored.createStyle('background: #033069;')
+  const blue4 = colored.createStyle('background: #00072d;')
+
+  colored.log`${whiteText`${blue1` deep ${blue2`deep ${blue3`deep ${blue4`OCEAN`} deep`} deep`} deep `}`}`
+  console.groupEnd()
+})();
+
+(function () {
+  console.group('Compose Styles:')
+  const yellowBg = colored.createStyle('background: #fdcb6e;')
+  const redText = colored.createStyle('color: #d63031;')
+  const boldText = colored.createStyle('font-weight: bold;')
+
+  const highlight = yellowBg(redText(boldText)) // compose styles to generate new style
+
+  colored.log`Install ${highlight` colored-log `} now!!`
+  console.groupEnd()
+})();
+
+
+(function () {
+  console.group('Compose Colored Messages')
+  colored.style = 'color: white; padding: 16px;'
+  const rainbow = ['#d63031', '#e17055', '#fdcb6e', '#00b894', '#81ecec', '#0984e3', '#6c5ce7']
+  const words = 'Rainbow'
+
+  const styles = rainbow.map((color, index) => {
+    const style = colored.createStyle(`background: ${color};`)
+    return style(words[index])
+  })
+  colored.log`${colored.join(styles)}`
+  colored.style = ''
+  console.groupEnd()
+})();
+  </script>
+</body>
+</html>
