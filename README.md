@@ -13,7 +13,7 @@ Composable colored logger in browser console
 ## Install
 
 ```sh
-$ yarn add colored-log
+$ yarn add colored-log-js
 ```
 
 ## Usage
