@@ -1,5 +1,5 @@
 {
-  "name": "colored-log",
+  "name": "colored-log-js",
   "version": "1.0.0",
   "main": "index.js",
   "description": "Terminal string styling done right",
