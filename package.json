@@ -1,6 +1,6 @@
 {
   "name": "colored-log-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "description": "Terminal string styling done right",
   "repository": "annotis/colored-log",
