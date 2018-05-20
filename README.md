@@ -29,6 +29,8 @@ const green = colored.createStyle('color: #00b894;')
 colored.log`normal ${blue('blue')} ${yellow('yellow')} ${red('red')} ${green('green')}`
 ```
 
+![Single Style](https://raw.githubusercontent.com/AnNOtis/colored-log/master/misc/single-style.png)
+
 ### Global default style
 
 ```js
@@ -37,6 +39,8 @@ colored.log`All text are bold and red`
 
 colored.style = '' // set empty string to reset default style
 ```
+
+![Default Style](https://raw.githubusercontent.com/AnNOtis/colored-log/master/misc/default-style.png)
 
 ### Nest Style
 
@@ -50,6 +54,8 @@ const red = colored.createStyle('color: #d63031;')
 colored.log`${yellowBg` nested ${red`style`} is avaliable!! `}`
 ```
 
+![Nest Styles](https://raw.githubusercontent.com/AnNOtis/colored-log/master/misc/nest-styles.png)
+
 ### Compose styles
 
 ```js
@@ -61,6 +67,8 @@ const highlight = yellowBg(redText(boldText)) // compose styles to generate new 
 
 colored.log`Install ${highlight` colored-log `} now!!`
 ```
+
+![Compose Styles](https://raw.githubusercontent.com/AnNOtis/colored-log/master/misc/compose-styles.png)
 
 ### Compute styles and join them
 
@@ -74,6 +82,8 @@ const styles = rainbow.map((color, index) => {
 })
 colored.log`${colored.join(styles)}`
 ```
+
+![Compute Messages](https://raw.githubusercontent.com/AnNOtis/colored-log/master/misc/compute-messages.png)
 
 ## Todo
 
